@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var sliderValue = Double.random(in: 1...255)
+    @State private var tintColorRed: Color = .red
+    
     var body: some View {
-        VStack {
-            
+        ZStack {
+            Color(.gray)
+                .ignoresSafeArea()
+            VStack {
+                ColorSliderView(value: $sliderValue, tintColor: $tintColorRed)
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
