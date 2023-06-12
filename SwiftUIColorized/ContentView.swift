@@ -16,8 +16,9 @@ struct ContentView: View {
         ZStack {
             Color(.gray)
                 .ignoresSafeArea()
-            VStack {
-                ColorSliderView(value: $sliderValue, tintColor: $tintColorRed)
+            HStack {
+                ValueTextView(value: sliderValue)
+                SliderView(value: $sliderValue, tintColor: $tintColorRed)
             }
             .padding()
         }
