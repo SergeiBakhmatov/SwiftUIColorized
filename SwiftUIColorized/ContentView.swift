@@ -22,9 +22,9 @@ struct ContentView: View {
             Color(.gray)
                 .ignoresSafeArea()
             VStack {
-                ColorPicker(value: $redValue, color: $colorRed)
-                ColorPicker(value: $greenValue, color: $colorGreen)
-                ColorPicker(value: $blueValue, color: $colorBlue)
+                ColorPickerView(value: $redValue, color: $colorRed)
+                ColorPickerView(value: $greenValue, color: $colorGreen)
+                ColorPickerView(value: $blueValue, color: $colorBlue)
             }
             .padding()
         }
@@ -37,7 +37,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct ColorPicker: View {
+struct ColorPickerView: View {
     
     @Binding var value: Double
     @Binding var color: Color
