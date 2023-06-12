@@ -39,7 +39,7 @@ struct ContentView: View {
                 )
                 
                 HStack {
-                    ColorPickerView(value: $redValue, color: $colorRed)
+                    ColorPickerView(value: $redValue, color: colorRed)
                     TextField("0",
                               value: redIsFocused ? $valueRedTF : $redValue,
                               format: .number.rounded(
@@ -55,7 +55,7 @@ struct ContentView: View {
                     .focused($redIsFocused)
                 }
                 HStack {
-                    ColorPickerView(value: $greenValue, color: $colorGreen)
+                    ColorPickerView(value: $greenValue, color: colorGreen)
                     TextField("0",
                               value: greenIsFocused ? $valueGreenTF : $greenValue,
                               format: .number.rounded(
@@ -71,7 +71,7 @@ struct ContentView: View {
                     .focused($greenIsFocused)
                 }
                 HStack {
-                    ColorPickerView(value: $blueValue, color: $colorBlue)
+                    ColorPickerView(value: $blueValue, color: colorBlue)
                     TextField("0",
                               value: blueIsFocused ? $valueBlueTF : $blueValue,
                               format: .number.rounded(
