@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var colorGreen: Color = .green
     @State private var colorBlue: Color = .blue
     
+    
     var body: some View {
         ZStack {
             Color(.gray)
@@ -57,6 +58,7 @@ struct ColorPickerView: View {
         HStack {
             ValueTextView(value: value)
             SliderView(value: $value, tintColor: $color)
+            ValueTFView(value: $value)
         }
     }
 }
@@ -79,4 +81,34 @@ struct ColorView: View {
                 )
             )
     }
+}
+
+struct ValueTFView: View {
+    
+    @Binding var value: Double
+    
+    var body: some View {
+        
+        TextField("0",
+                  value: $value,
+                  format: .number.rounded(
+                    rule: .toNearestOrAwayFromZero,
+                    increment: 1.0)
+        )
+            .frame(width: 50, height: 30)
+            .background()
+            .multilineTextAlignment(.trailing)
+            .cornerRadius(3)
+            .foregroundColor(.black)
+            .keyboardType(.numberPad)
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done", action: action)
+                }
+            }
+            .foc
+
+    }
+    
+    private func action() {}
 }
