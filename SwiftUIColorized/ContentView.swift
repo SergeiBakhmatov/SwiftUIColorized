@@ -13,9 +13,9 @@ struct ContentView: View {
     @State private var greenValue = Double.random(in: 1...255)
     @State private var blueValue = Double.random(in: 1...255)
     
-    @State private var colorRed: Color = .red
-    @State private var colorGreen: Color = .green
-    @State private var colorBlue: Color = .blue
+    private let colorRed: Color = .red
+    private let colorGreen: Color = .green
+    private let colorBlue: Color = .blue
     
     var body: some View {
         ZStack {
@@ -29,10 +29,11 @@ struct ContentView: View {
                     colorGreenValue: greenValue,
                     colorBlueValue: blueValue
                 )
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                 
-                ColorPickerView(value: $redValue, color: $colorRed)
-                ColorPickerView(value: $greenValue, color: $colorGreen)
-                ColorPickerView(value: $blueValue, color: $colorBlue)
+                ColorPickerView(value: $redValue, color: colorRed)
+                ColorPickerView(value: $greenValue, color: colorGreen)
+                ColorPickerView(value: $blueValue, color: colorBlue)
                 
                 Spacer()
             }
@@ -51,12 +52,12 @@ struct ContentView_Previews: PreviewProvider {
 struct ColorPickerView: View {
     
     @Binding var value: Double
-    @Binding var color: Color
+    let color: Color
     
     var body: some View {
         HStack {
             ValueTextView(value: value)
-            SliderView(value: $value, tintColor: $color)
+            SliderView(value: $value, tintColor: color)
         }
     }
 }

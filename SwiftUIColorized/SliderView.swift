@@ -10,7 +10,7 @@ import SwiftUI
 struct SliderView: View {
     
     @Binding var value: Double
-    @Binding var tintColor: Color
+    let tintColor: Color
     
     var body: some View {
         
