@@ -21,13 +21,24 @@ struct ContentView: View {
         ZStack {
             Color(.gray)
                 .ignoresSafeArea()
+            
             VStack {
+                
+                ColorView(
+                    colorRedValue: redValue,
+                    colorGreenValue: greenValue,
+                    colorBlueValue: blueValue
+                )
+                
                 ColorPickerView(value: $redValue, color: $colorRed)
                 ColorPickerView(value: $greenValue, color: $colorGreen)
                 ColorPickerView(value: $blueValue, color: $colorBlue)
+                
+                Spacer()
             }
             .padding()
         }
+        
     }
 }
 
@@ -47,5 +58,25 @@ struct ColorPickerView: View {
             ValueTextView(value: value)
             SliderView(value: $value, tintColor: $color)
         }
+    }
+}
+
+struct ColorView: View {
+    
+    let colorRedValue: Double
+    let colorGreenValue: Double
+    let colorBlueValue: Double
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 15)
+            .frame(width: 350, height: 150)
+            .overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.white, lineWidth: 4))
+            .foregroundColor(
+                Color(
+                    red: colorRedValue/255,
+                    green: colorGreenValue/255,
+                    blue: colorBlueValue/255
+                )
+            )
     }
 }
